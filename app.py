@@ -3,8 +3,6 @@ from flask_cors import CORS
 import hashlib
 import mnemonic
 import time
-import json
-import os
 import random
 
 # Blockchain and gift management imports
