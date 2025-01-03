@@ -1,33 +1,6 @@
-function toggleTransactionID() {
-    const transactionIdFrame = document.getElementById('transaction_id_frame');
-    transactionIdFrame.style.display = transactionIdFrame.style.display === 'none' ? 'block' : 'none';
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('button, p, h1, img');
-    
-    elements.forEach((el, index) => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            el.style.transition = 'opacity 1s ease, transform 1s ease';
-            el.style.opacity = 1;
-            el.style.transform = 'translateY(0)';
-        }, index * 200);
-    });
-
+    // Your existing DOMContentLoaded code
     checkUser();  // Load user data when the page is loaded
-
-    // Apply glowing effect to buttons
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => {
-        button.addEventListener('mouseover', () => {
-            button.style.boxShadow = '0 0 20px rgba(255, 255, 0, 0.8)';
-        });
-        button.addEventListener('mouseout', () => {
-            button.style.boxShadow = 'none';
-        });
-    });
 });
 
 function showRegisterForm() {
@@ -43,7 +16,6 @@ function closeForm(formId) {
 }
 
 function checkUser() {
-    // Check if the user is logged in by checking the local storage
     const address = localStorage.getItem('address');
     if (address) {
         document.getElementById('address').textContent = 'Ваш адрес: ' + address;
@@ -149,7 +121,6 @@ async function getGift() {
             console.error("Имя изображения не определено:", data.gift.gift_name);
         }
 
-        // Create the Transaction ID toggle
         const transactionIdElement = document.getElementById('transaction_id');
         transactionIdElement.innerHTML = `<span id="toggle_transaction_id" style="cursor:pointer; color:blue;">REVEAL TRANSACTION ID</span><div id="transaction_id_frame" class="transaction-frame" style="display:none; background-color:white; color:black; font-family: 'IBM Plex Mono', monospace; padding: 5px; border-radius: 5px; word-wrap: break-word;">${data.transaction_id}</div>`;
         document.getElementById('toggle_transaction_id').addEventListener('click', toggleTransactionID);
@@ -225,4 +196,9 @@ function filterInventory(inventory = JSON.parse(localStorage.getItem('inventory'
         `;
         inventoryDiv.appendChild(itemDiv);
     });
+}
+
+function toggleTransactionID() {
+    const transactionIdFrame = document.getElementById('transaction_id_frame');
+    transactionIdFrame.style.display = transactionIdFrame.style.display === 'none' ? 'block' : 'none';
 }
