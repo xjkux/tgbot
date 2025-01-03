@@ -51,40 +51,9 @@ function checkUser() {
     }
 }
 
-async function sendGift() {
-    const fromAddress = localStorage.getItem('address');
-    const toAddress = prompt("Введите адрес получателя:");
-    const giftName = prompt("Введите имя подарка, который хотите отправить:");
-
-    if (!fromAddress || !toAddress || !giftName) {
-        alert("Все поля должны быть заполнены!");
-        return;
-    }
-
-    try {
-        const response = await fetch('http://127.0.0.1:5500/send_gift', {
-            method: 'POST', // Ensure the method is POST
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ from_address: fromAddress, to_address: toAddress, gift_name: giftName })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error);
-        }
-
-        const data = await response.json();
-        alert(`Подарок успешно отправлен! Transaction ID: ${data.transaction_id}`);
-    } catch (error) {
-        alert(`Ошибка отправки подарка: ${error.message}`);
-    }
-}
-
 async function register() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/register', {
+        const response = await fetch('https://sitecheck.yhub.net/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -117,7 +86,7 @@ async function login() {
     }
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/login', {
+        const response = await fetch('https://sitecheck.yhub.net/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -149,7 +118,7 @@ async function getGift() {
     }
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/get_gift', {
+        const response = await fetch('https://sitecheck.yhub.net/get_gift', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -199,7 +168,7 @@ async function showInventory() {
     }
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/inventory', {
+        const response = await fetch('https://sitecheck.yhub.net/inventory', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
