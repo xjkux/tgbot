@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun Flower Gift Collector</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Sun Flower Gift Collector</h1>
+            <nav class="nav">
+                <button onclick="showRegisterForm()">Регистрация</button>
+                <button onclick="showLoginForm()">Вход</button>
+                <button onclick="getGift()">Получить Подарок</button>
+                <button onclick="showInventory()">Мой Инвентарь</button>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <section class="user-info">
+            <p id="address"></p>
+            <p id="seed"></p>
+            <p id="balance"></p>
+        </section>
+        <section id="gift_section">
+            <div id="gift_frame" class="gift-frame common">
+                <p id="gift_title" class="gift-text"></p>
+                <div class="rarity-container">
+                    <p id="gift_rarity" class="gift-text"></p>
+                </div>
+                <p id="gift_number" class="gift-text"></p>
+                <img id="gift_image" alt="Подарок" />
+                <div id="transaction_id" class="transaction-text"></div>
+                <div id="transaction_frame" class="transaction-frame">
+                    <p id="timestamp" class="gift-text">TIME: xx:xx:xx</p>
+                </div>
+            </div>
+        </section>
+        <section id="inventory_section">
+            <h2>Ваш Инвентарь</h2>
+            <div class="filter-container">
+                <label for="filter">Фильтровать по:</label>
+                <select id="filter" onchange="filterInventory()">
+                    <option value="none">Без фильтра</option>
+                    <option value="rarity-desc">Сначала самые редкие</option>
+                    <option value="number-asc">Сначала те у которых маленький номер</option>
+                    <option value="rarity-asc">Сначала менее редкие</option>
+                </select>
+            </div>
+            <div id="inventory"></div>
+        </section>
+
+        <!-- Register Form -->
+        <div id="register_form" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeForm('register_form')">&times;</span>
+                <h2>Регистрация</h2>
+                <button onclick="register()">Зарегистрироваться</button>
+                <p id="reg_message"></p>
+            </div>
+        </div>
+        <!-- Login Form -->
+        <div id="login_form" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeForm('login_form')">&times;</span>
+                <h2>Вход</h2>
+                <div class="seed-inputs">
+                    <input type="text" id="seed_word_1" placeholder="1">
+                    <input type="text" id="seed_word_2" placeholder="2">
+                    <input type="text" id="seed_word_3" placeholder="3">
+                    <input type="text" id="seed_word_4" placeholder="4">
+                    <input type="text" id="seed_word_5" placeholder="5">
+                    <input type="text" id="seed_word_6" placeholder="6">
+                    <input type="text" id="seed_word_7" placeholder="7">
+                    <input type="text" id="seed_word_8" placeholder="8">
+                    <input type="text" id="seed_word_9" placeholder="9">
+                    <input type="text" id="seed_word_10" placeholder="10">
+                    <input type="text" id="seed_word_11" placeholder="11">
+                    <input type="text" id="seed_word_12" placeholder="12">
+                </div>
+                <button onclick="login()">Войти</button>
+                <p id="login_message"></p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sun Flower Gift Collector. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

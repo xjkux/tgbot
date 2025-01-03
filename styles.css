@@ -1,0 +1,366 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif, 'Arial', 'Helvetica';
+    background-color: #F4F4F4; /* Светлый фон */
+    color: #333; /* Темно-серый цвет для текста */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    background-color: #FFFFFF; /* Белый фон */
+    padding: 20px 0;
+    border-bottom: 1px solid #DDD; /* Легкая граница */
+    text-align: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Темный текст */
+    text-transform: uppercase;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+nav button {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+    background-color: #EFEFEF; /* Легкий фон при наведении */
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-info p {
+    font-size: 16px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+#gift_section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.gift-frame {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #DDD;
+    background-color: #FFFFFF;
+    display: inline-block;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); /* Эффект для подарков */
+}
+
+.gift-text {
+    color: #333;
+}
+
+#gift_title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#gift_number {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+#gift_rarity {
+    font-size: 16px;
+    margin: 0;
+    color: #666;
+}
+
+#gift_image {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+.rarity-container {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.transaction-frame {
+    display: none;
+    background-color: #FFF;
+    color: black;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 5px;
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+
+.transaction-id-frame {
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.transaction-id-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #000;
+}
+
+.gift-frame.epic {
+    background-color: #FFD700;
+    box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.5);
+}
+
+.gift-frame.ultra-rare {
+    background-color: #8A2BE2;
+    box-shadow: 0 0 20px 10px rgba(138, 43, 226, 0.5);
+}
+
+.gift-frame.rare {
+    background-color: #1E90FF;
+}
+
+.gift-frame.uncommon {
+    background-color: #32CD32;
+}
+
+.gift-frame.common {
+    background-color: #D3D3D3;
+}
+
+#inventory_section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-container label {
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-container select {
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    background-color: #FFF;
+    color: #333;
+    font-size: 14px;
+}
+
+#inventory {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.inventory-item {
+    background-color: #FFFFFF;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inventory-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-item img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.item-rarity {
+    padding: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.inventory-item.epic .item-rarity {
+    background-color: #FFD700;
+    color: black;
+}
+
+.inventory-item.ultra-rare .item-rarity {
+    background-color: #8A2BE2;
+    color: white;
+}
+
+.inventory-item.rare .item-rarity {
+    background-color: #1E90FF;
+    color: white;
+}
+
+.inventory-item.uncommon .item-rarity {
+    background-color: #32CD32;
+    color: white;
+}
+
+.inventory-item.common .item-rarity {
+    background-color: #D3D3D3;
+    color: black;
+}
+
+.footer {
+    background-color: #FFFFFF;
+    padding: 20px 0;
+    border-top: 1px solid #DDD;
+    text-align: center;
+}
+
+.footer p {
+    color: #666;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav button {
+        width: 100%;
+    }
+
+    #inventory .inventory-item {
+        width: 100%;
+    }
+
+    .seed-inputs input[type="text"] {
+        width: calc(50% - 10px);
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #FFFFFF;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #DDD;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: #555;
+    cursor: pointer;
+}
+
+.seed-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.seed-inputs input[type="text"] {
+    width: calc(33.333% - 10px);
+    padding: 10px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    background-color: #FFF;
+    color: #333;
+}
+
+button {
+    background-color: #333;
+    color: #FFF;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
