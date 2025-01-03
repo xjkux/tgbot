@@ -73,4 +73,4 @@ def inventory():
     return jsonify({"inventory": users[user_address]["inventory"], "balance": users[user_address]["balance"]})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5500, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
