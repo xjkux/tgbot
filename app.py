@@ -6,6 +6,7 @@ import time
 import json
 import os
 import random
+import flask_cors
 
 # Blockchain and gift management imports
 from blockchain import blockchain, add_data_to_blockchain
@@ -27,7 +28,7 @@ def create_user():
 
 # Flask application
 app = Flask(__name__)
-CORS(app)
+flask_cors.CORS(app)
 
 @app.route('/register', methods=['POST'])
 def register():
