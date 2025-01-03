@@ -28,7 +28,7 @@ def create_user():
 
 # Flask application
 app = Flask(__name__)
-flask_cors.CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://sitecheck.yhub.net"}})
 
 @app.route('/register', methods=['POST'])
 def register():
