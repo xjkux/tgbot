@@ -6,7 +6,6 @@ import time
 import json
 import os
 import random
-import flask_cors
 
 # Blockchain and gift management imports
 from blockchain import blockchain, add_data_to_blockchain
@@ -28,7 +27,7 @@ def create_user():
 
 # Flask application
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://sitecheck.yhub.net"}})
+CORS(app)
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -76,4 +75,4 @@ def inventory():
     return jsonify({"inventory": users[user_address]["inventory"], "balance": users[user_address]["balance"]})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=False)
+    app.run(host='0.0.0.0', port=5500, debug=True)
